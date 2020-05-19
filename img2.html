@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/caman/dist/caman.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        .img {
+            width: 500px;
+        }
+
+        #slider {
+            width: 600px;
+        }
+
+        #custom-handle {
+            width: 3em;
+            height: 1.6em;
+            top: 50%;
+            margin-top: -.8em;
+            text-align: center;
+            line-height: 1.6em;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="img">
+        <img id="stamp" src="img/stamp.jpg" alt="">
+    </div>
+
+    <div id="slider">
+        <div id="custom-handle" class="ui-slider-handle"></div>
+    </div>
+    <!-- <div id="slider">
+        <div id="custom-handle" class="ui-slider-handle"></div>
+    </div> -->
+    <script>
+        
+        //slider
+        $(function(){
+            var handle = $("#custom-handle");
+            $("#slider").slider({
+                range: "max",
+                min: -100,
+                //載入時 會取到值
+                create: function () {
+                    handle.text($(this).slider("value"));
+                },
+                
+                change: function (event, ui) {
+                    handle.text(ui.value);
+                    var vals = ui.value;
+                    console.log(vals);
+                     //改變色調
+         Caman('#stamp', function () {
+                        this.revert(false);
+                        this.hue(vals)
+                        // this.brightness(vals);
+                        this.render();
+                    })
+                }
+            });
+
+        });
+    </script> 
+</body>
+
+</html>

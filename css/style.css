@@ -1,12 +1,16 @@
+@charset "UTF-8";
+/* 這個是可以刪掉的 */
 body {
   margin: 20px;
 }
 
+/* 這個是印章的大小，都會在固定寬上 */
 .img {
   width: 500px;
   background-color: #fff;
 }
 
+/* 這個套版上 可以刪掉 */
 .wrapper {
   width: 1200px;
   margin: 0 auto;
@@ -18,6 +22,7 @@ body {
   top: 40px;
   border: 1px solid #333;
   padding: 20px;
+  /* 這個不能刪掉 可以改數值 */
 }
 
 .control #hux, .control #scale, .control #brightness, .control #contrast {
